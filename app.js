@@ -39,14 +39,11 @@ app.post('/send', function(req, res) {
     return res.json({ text: 'Mensaje enviado.' });
 });
 
-app.post('/damePORT', (req, res) => {
-    return res.json({ port: PORT });
-});
-
 io.on('connection', socket => {
     console.log('Socket conectado', socket.id);
     socket.on('disconnect', () => {
         clientes = clientes.filter(cliente => cliente.id != socket.id);
+        console.log("Cliente desconectado: " + socket.id);
         if (clientes.length == 0) {
             mensajes = [];
         }
