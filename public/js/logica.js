@@ -1,7 +1,15 @@
-var socket = io.connect('http://localhost:8080');
+var port = null;
 var list = document.querySelector('#lista-users');
 var username = window.location.pathname.replace('/chat/', '');
 var clientes = [];
+var socket;
+
+$.post('/damePORT', {}, datas => {
+    port = datas.port;
+    var server = 'chatxd.herokuapp.com' + port.toString();
+
+    socket = io.connect(server);
+})
 
 function conectarChat() {
     var id = socket.id;
@@ -24,19 +32,19 @@ function conectarChat() {
             var msj;
             if (mensaje.id == socket.id) {
                 msj = `
-          <div class="local-message">
+        <div class="local-message">
             <strong>${mensaje.username}: </strong>
             <p>${sanitized}</p>
-          </div>
-          `;
+        </div>
+        `;
                 document.querySelector('.mensajes-container').innerHTML += msj;
             } else {
                 msj = `
-          <div class="remote-message">
+        <div class="remote-message">
             <strong>${mensaje.username}: </strong>
             <p>${sanitized}</p>
-          </div>
-          `;
+        </div>
+        `;
                 document.querySelector('.mensajes-container').innerHTML += msj;
             }
         })
@@ -68,16 +76,16 @@ socket.on('mensaje', function(data) {
     if (data.id == socket.id) {
         msj = `
     <div class="local-message">
-      <strong>${data.username}: </strong>
-      <p>${sanitized}</p>
+    <strong>${data.username}: </strong>
+    <p>${sanitized}</p>
     </div>
     `;
         document.querySelector('.mensajes-container').innerHTML += msj;
     } else {
         msj = `
     <div class="remote-message">
-      <strong>${data.username}: </strong>
-      <p>${sanitized}</p>
+    <strong>${data.username}: </strong>
+    <p>${sanitized}</p>
     </div>
     `;
         document.querySelector('.mensajes-container').innerHTML += msj;

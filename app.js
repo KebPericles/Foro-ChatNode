@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 8080;
+
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
@@ -10,7 +12,7 @@ var mensajes = [];
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-server.listen(8080, () => console.log('Servidor iniciado en 8080'));
+server.listen(PORT, () => console.log('Servidor iniciado en ' + PORT));
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
@@ -35,6 +37,10 @@ app.post('/send', function(req, res) {
     mensajes.push({ id: id, msg: msg, username: username });
     io.emit('mensaje', { id: id, msg: msg, username: username });
     return res.json({ text: 'Mensaje enviado.' });
+});
+
+app.post('/damePORT', (req, res) => {
+    return res.json({ port: PORT });
 });
 
 io.on('connection', socket => {
