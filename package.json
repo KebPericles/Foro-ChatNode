@@ -1,29 +1,30 @@
 {
-  "name": "4_chat",
-  "version": "1.0.0",
-  "description": "Un chat bomnito y humilde",
-  "main": "app.js",
-  "dependencies": {
-    "express": "^4.17.1",
-    "socket.io": "^3.0.4"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KebPericles/Foro-ChatNode.git"
-  },
-  "keywords": [
-    "Chat",
-    "Foro",
-    "Node.js"
-  ],
-  "author": "ElKeso",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/KebPericles/Foro-ChatNode/issues"
-  },
-  "homepage": "https://github.com/KebPericles/Foro-ChatNode#readme"
+    "name": "4_chat",
+    "version": "1.0.0",
+    "description": "Un chat bomnito y humilde",
+    "main": "app.js",
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^3.0.4"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/KebPericles/Foro-ChatNode.git"
+    },
+    "keywords": [
+        "Chat",
+        "Foro",
+        "Node.js"
+    ],
+    "author": "ElKeso",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/KebPericles/Foro-ChatNode/issues"
+    },
+    "homepage": "https://github.com/KebPericles/Foro-ChatNode#readme"
 }
