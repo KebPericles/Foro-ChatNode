@@ -2,14 +2,8 @@ var port = null;
 var list = document.querySelector('#lista-users');
 var username = window.location.pathname.replace('/chat/', '');
 var clientes = [];
-var socket;
-
-$.post('/damePORT', {}, datas => {
-    port = datas.port;
-    var server = 'chatxd.herokuapp.com:' + port.toString();
-
-    socket = io.connect(server);
-})
+var server = 'chatxd.herokuapp.com';
+var socket = io.connect(server);
 
 function conectarChat() {
     var id = socket.id;
