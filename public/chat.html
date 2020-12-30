@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sala de chat</title>
+    <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+    <div class="loader">
+        <button type="button" onclick="conectarChat()">Conectarse</button>
+    </div>
+    <div class="main-container">
+        <div class="text-container">
+            <div class="mensajes-container">
+            </div>
+            <div class="input-chat">
+                <input type="text" id="input" placeholder="Mensaje..." onkeypress="enviarMensaje(event)">
+            </div>
+        </div>
+        <div class="user-list">
+            <h3>Lista de usuarios:</h3>
+            <hr class="divider">
+            <ol id="lista-users"></ol>
+        </div>
+    </div>
+    <script src="/js/jq.js" charset="utf-8"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/logica.js" charset="utf-8"></script>
+</body>
+
+</html>
