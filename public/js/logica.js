@@ -6,7 +6,7 @@ var socket;
 
 $.post('/damePORT', {}, datas => {
     port = datas.port;
-    var server = 'chatxd.herokuapp.com' + port.toString();
+    var server = 'chatxd.herokuapp.com:' + port.toString();
 
     socket = io.connect(server);
 })
